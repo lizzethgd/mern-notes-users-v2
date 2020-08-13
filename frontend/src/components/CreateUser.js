@@ -13,7 +13,7 @@ export default class CreateUser extends Component {
     }
 
     getUsers =async() => {
-        const res = await axios.get('http://localhost:5000/api/users')
+        const res = await axios.get('/api/users')
         this.setState({users: res.data})
     }
 
@@ -24,7 +24,7 @@ export default class CreateUser extends Component {
 
     onSubmit = async e => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/api/users', {
+        await axios.post('/api/users', {
             username: this.state.username
         })
         this.setState({username: ''})
@@ -32,7 +32,7 @@ export default class CreateUser extends Component {
     }
 
     deleteUser = async(id) => {
-        await axios.delete('http://localhost:5000/api/users/'+id)
+        await axios.delete('/api/users/'+id)
         this.getUsers() 
     }
 

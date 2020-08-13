@@ -17,14 +17,14 @@ export default class CreateNote extends Component {
     }
 
     async componentDidMount(){
-       const res = await axios.get('http://localhost:5000/api/users')
+       const res = await axios.get('/api/users')
        this.setState({
            users: res.data.map(user => user.username),
            userSelected: res.data[0].username,
            cardtitle: 'Create'
        })
        if (this.props.match.params.id){
-           const res = await axios.get('http://localhost:5000/api/notes/'+this.props.match.params.id)
+           const res = await axios.get('/api/notes/'+this.props.match.params.id)
            this.setState({
                userSelected: res.data.author,
                title: res.data.title,
@@ -46,9 +46,9 @@ export default class CreateNote extends Component {
             date: this.state.date
         }
         this.state.editing ?
-            await axios.put('http://localhost:5000/api/notes/'+this.state._id, newNote) 
+            await axios.put('/api/notes/'+this.state._id, newNote) 
         :
-            await axios.post('http://localhost:5000/api/notes', newNote)
+            await axios.post('/api/notes', newNote)
     
         this.props.history.push('/');
     }

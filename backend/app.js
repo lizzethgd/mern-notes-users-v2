@@ -7,6 +7,11 @@ const app = express()
 // settings
 app.set('port', process.env.PORT || 5000)
 
+// Serving static files in express
+app.use(express.static('public'))
+// serving static files
+app.use(express.static('public/assets'))
+
 // middlewares
 app.use(bodyParser.json());
 app.use(cors())
