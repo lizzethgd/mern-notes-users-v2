@@ -4,8 +4,8 @@
   "description": "backend of MERN",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/index.js",
-    "server": "nodemon backend/index.js",
+    "start": "node ./backend/index.js",
+    "server": "nodemon ./backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build"
   },
